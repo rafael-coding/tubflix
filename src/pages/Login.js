@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 function Login(){
     return (
         <>
             <h1>Login</h1>
-            <a href="/home">home</a>
-            <a href="/cadastro">cadastro</a>
+            <Link to="/home">home</Link>
+            <Link to="/cadastro">cadastro</Link>
         </>
     )
 
