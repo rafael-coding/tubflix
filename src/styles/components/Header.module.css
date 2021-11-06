@@ -3,8 +3,9 @@
     top: 0;
     display: flex;
     justify-content: space-between;
-    padding: 18px 77px 18px 55px;
+    padding: 18px 77px 3px 55px;
     width: 100vw;
+    background: transparent;
 }
 
 .header img{
