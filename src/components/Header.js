@@ -16,7 +16,7 @@ function Header(){
                     <div className={styles.arrow}></div>
                     <img src={perfil} alt="perfil"/>
                 <div className={styles.sidebar}>
-                <Link to="/cadastro">
+                <Link to="/logout">
                     Logout
                 </Link>
                 </div>
