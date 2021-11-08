@@ -25,7 +25,7 @@ function Login(props){
             "password": password,
         });
 
-        fetch('http://localhost:8000/api/auth/login', {
+        fetch('https://tubflix-api.herokuapp.com/api/v1/auth/login', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
