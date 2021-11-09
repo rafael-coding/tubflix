@@ -41,7 +41,8 @@ function Login(props){
                 setMessage('Credentials not found!');
             } else if (result.access_token) {
                 //set global access token
-                props.setAuthToken(result.access_token);
+                //props.setAuthToken(result.access_token);
+                localStorage.setItem('api-token', result.access_token);
                 console.log('Successfully logged in');
             }
         })

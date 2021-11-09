@@ -20,10 +20,11 @@ function App() {
   // }
 
 
-  
+  //get token at localstorage
   useEffect(() => {
+    setAuthToken(localStorage.getItem("api-token"));
     console.log(authToken);
-  });
+  }, [authToken]);
 
   return (
       <BrowserRouter>
