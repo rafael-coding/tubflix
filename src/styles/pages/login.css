@@ -10,13 +10,10 @@
 }
 
 .login-page .login-page-content {
-    background-image: url("../../images/home-page-background.jpg");
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 100%;
+    background-image: url("../../img/bg-login.jpg");
+    object-fit: cover;
+    width: 100vw;
     height: 100vh;
-    margin-top: 4rem;
 }
 
 .login-page .login-component {
@@ -59,7 +56,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     flex-wrap: wrap;
     position: relative;
 }

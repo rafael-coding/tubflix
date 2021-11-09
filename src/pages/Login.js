@@ -3,7 +3,9 @@ import { Link, Navigate } from "react-router-dom";
 
 import Header from "../components/Header";
 
-import '../styles/pages/login.css';
+// import '../styles/pages/Login.module.css';
+import '../styles/pages/Login.css';
+
 
 function Login(props){
 
