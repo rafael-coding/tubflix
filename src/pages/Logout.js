@@ -17,7 +17,8 @@ function Logout(props){
         .then(response => response.json())
         .then(result => {
             //unset global access token
-            props.setAuthToken(false);
+            //props.setAuthToken(false);
+            localStorage.removeItem("api-token");
             console.log(result.message)
         })
         .catch(error => console.log('error when trying to sign out ', error));
