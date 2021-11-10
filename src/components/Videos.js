@@ -8,16 +8,9 @@ const apiUrl = 'https://tubflix-api.herokuapp.com/api/v1';
 
 function Videos(){
 
-    const [authToken, setAuthToken] = useState(false);
-  
-    //get token at localstorage
-    useEffect(() => {
-      setAuthToken(localStorage.getItem("api-token"));
-    //   console.log(authToken);
-    }, [authToken]);
-    // console.log(authToken);
-
     const [videos, setVideos] = useState([]);
+    // const [authToken, setAuthToken] = useState(false);
+
 
     useEffect(() => {
         axios.get(`${apiUrl}/videos`, 
@@ -25,17 +18,16 @@ function Videos(){
             headers: {
                 'content-type': 'application/json',
                 'Accept': 'application/json',
-                'Authorization': `Bearer ${authToken}`
+                'Authorization': `Bearer ${localStorage.getItem("api-token")}`
             }
-        }
-    )
+        })
         .then(function (response) {
             setVideos(response.data)
             // console.log(`${apiUrl}/videos`)
         })
         .catch(function (error) {
             console.log(error);
-        })
+        });
     }, []);
 
             console.log(videos);
