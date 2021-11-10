@@ -1,0 +1,137 @@
+
+
+.login-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.login-page .login-page-content {
+    background-image: url("../../img/bg-login.jpg");
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+.login-page .login-component {
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 3.5rem;
+    width: 25rem;
+    z-index: 5;
+    margin-top: 5rem;
+    color: white;
+}
+
+.login-page .login-component .transparent-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.3rem;
+    background-color: black;
+    opacity: 0.85;
+    z-index: -1;
+}
+
+.login-page .login-component .title {
+    width: 100%;
+}
+
+.login-page .login-component .title h1 {
+    font-weight: lighter;
+    margin-bottom: 2rem;
+}
+
+.login-page .login-component .form-user-messages-wrapper {
+    background-color: rgb(255, 120, 120);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+
+.login-page .login-component .form-user-messages-wrapper .close-form-user-messages {
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+    top: 0.6rem;
+    border-radius: 0.3rem;
+    padding-bottom: 0.08rem;
+}
+.login-page .login-component .form-user-messages-wrapper .close-form-user-messages:hover {
+    background-color: #333333;
+}
+
+
+
+.login-page .login-component form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+
+.login-page .login-component form > * {
+    width: 100%;
+    border-radius: 0.3rem;
+    padding: 0.7rem 1rem;
+    outline: none;
+    border: none;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border: none;
+}
+
+.login-page .login-component form input {
+    background-color: #333333;
+}
+
+.login-page .login-component form input:focus {
+    background-color: white;
+}
+
+.login-page .login-component form button {
+    cursor: pointer;
+    background-color: rgb(229, 9, 19);
+    color: white;
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.login-page .login-component form button:hover {
+    background-color: #c4c4c4;
+    color: black;
+}
+
+.login-page .login-component .new-register {
+    width: 100%;
+}
+
+.login-page .login-component .new-register h5 {
+    color: #a5a5a5;
+    font-weight: normal;
+}
+
+.login-page .login-component .new-register h5 a {
+    color: white;
+    text-decoration: none;
+}
+
+.login-page .login-component .new-register h5 a:hover {
+    text-decoration: underline;
+}

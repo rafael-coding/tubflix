@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Rubik, Arial, sans-serif;
+}
+
+
+/* Global CSS devFilipe */
+html {
+    font-size: calc(12px + 0.833vw);
+}
+
+body {
+    background-color: black;
+}
+
+/* definir ponto de quebra depois*/
+/* @media screen and (min-width: 660px){
+    html {
+        font-size: 3.865vw;
+    }
+} */
+/* end Global CSS devFilipe */
