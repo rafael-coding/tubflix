@@ -6,12 +6,13 @@ import Header from '../components/Header'
 import Videos from '../components/Videos'
 
 function Home(props){
+
     return (
         <>
             {props.authToken ? '' : <Navigate to="/" /> }
             <Header/>
             <div className={styles.bgHome}>
-            <Videos/>
+            <Videos />
             </div>
         </>
     )
