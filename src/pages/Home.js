@@ -1,21 +1,35 @@
+import styles from "../styles/pages/Home.module.css";
+import { useNavigate } from "react-router-dom";
 
-import styles from '../styles/pages/Home.module.css';
-import { Navigate } from "react-router-dom";
+import Header from "../components/Header";
+import Videos from "../components/Videos";
+import { useEffect } from "react";
 
-import Header from '../components/Header'
-import Videos from '../components/Videos'
+function Home() {
+  useEffect(() => {
+    const local = localStorage.getItem("api-token");
+    console.log("Brabres ", local);
+  });
 
-function Home(props){
+  const navigate = useNavigate();
 
-    return (
-        <>
-            {props.authToken ? '' : <Navigate to="/" /> }
-            <Header/>
-            <div className={styles.bgHome}>
-            <Videos />
-            </div>
-        </>
-    )
+  function isLogged() {
+    const local = localStorage.getItem("api-token");
+    if (local) {
+      return true;
+    } else {
+      navigate("/");
+    }
+  }
+  return (
+    <>
+      {isLogged()}
+      <Header />
+      <div className={styles.bgHome}>
+        <Videos />
+      </div>
+    </>
+  );
 }
 
 export default Home;
