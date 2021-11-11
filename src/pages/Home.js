@@ -1,15 +1,16 @@
+import styles from "../styles/pages/Home.module.css";
+import { useNavigate } from "react-router-dom";
 
-import styles from '../styles/pages/Home.module.css';
 import { Navigate } from "react-router-dom";
+import Header from "../components/Header";
+import Videos from "../components/Videos";
 import {React, useState, useEffect} from 'react';
 import axios from 'axios';
 
-import Header from '../components/Header'
-import Videos from '../components/Videos'
-
 const apiUrl = 'https://tubflix-api.herokuapp.com/api/v1';
 
-function Home(props){
+function Home() {
+  const navigate = useNavigate();
 
     const [videos, setVideos] = useState([]);
     // const [authToken, setAuthToken] = useState(false);
@@ -33,24 +34,25 @@ function Home(props){
         });
     }, []);
 
-            console.log(videos);
+            console.log(videos.data);
 
-    return (
-        <>
-            {props.authToken ? '' : <Navigate to="/" /> }
-            <Header/>
-            <div className={styles.bgHome}>
-                <section>
-                    {videos.map((item, key)=>{
-                        <div>
-                            {item.data.name}
-                        </div>
-                    })}
-                </section>
-                <Videos/>
-            </div>
-        </>
-    )
+  function isLogged() {
+    const local = localStorage.getItem("api-token");
+    if (local) {
+      return true;
+    } else {
+      navigate("/");
+    }
+  }
+  return (
+    <>
+      {isLogged()}
+      <Header />
+      <div className={styles.bgHome}>
+        <Videos />
+      </div>
+    </>
+  );
 }
 
 export default Home;
