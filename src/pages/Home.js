@@ -3,14 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 import Header from "../components/Header";
 import Videos from "../components/Videos";
-import { useEffect } from "react";
+//import { useEffect } from "react";
 
 function Home() {
-  useEffect(() => {
-    const local = localStorage.getItem("api-token");
-    console.log("Brabres ", local);
-  });
-
   const navigate = useNavigate();
 
   function isLogged() {
