@@ -6,7 +6,7 @@ import perfil from "../img/perfil-user.png";
 
 import styles from "../styles/components/Header.module.css";
 
-function Header() {
+function Header({black}) {
   const navigate = useNavigate();
   function logout() {
     localStorage.removeItem("api-token");
@@ -15,7 +15,7 @@ function Header() {
 
   return (
     <>
-      <div className={styles.header}>
+      <header className={black ? styles.header : ''}>
         <Link to="/home">
           <img src={logo} alt="logo" />
         </Link>
@@ -26,7 +26,7 @@ function Header() {
             <button onClick={logout}>Logout</button>
           </div>
         </div>
-      </div>
+      </header>
     </>
   );
 }

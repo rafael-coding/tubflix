@@ -1,58 +1,49 @@
 import styles from "../styles/pages/Home.module.css";
+import {React, useEffect, useState} from 'react';
 import { useNavigate } from "react-router-dom";
 
-import { Navigate } from "react-router-dom";
 import Header from "../components/Header";
 import Videos from "../components/Videos";
-import {React, useState, useEffect} from 'react';
-import axios from 'axios';
 
-const apiUrl = 'https://tubflix-api.herokuapp.com/api/v1';
+
 
 function Home() {
-  const navigate = useNavigate();
+    const [blackHeader, setBlackHeader] = useState(false);
+    const navigate = useNavigate();
 
-    const [videos, setVideos] = useState([]);
-    // const [authToken, setAuthToken] = useState(false);
+    function isLogged() {
+      const local = localStorage.getItem("api-token");
+      if (local) {
+        return true;
+      } else {
+        navigate("/");
+      }
+    }
 
-
-    useEffect(() => {
-        axios.get(`${apiUrl}/categories`, 
-        {   
-            headers: {
-                'content-type': 'application/json',
-                'Accept': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem("api-token")}`
+    useEffect(()=>{
+        const scrollLisener = () => {
+            if(window.scrollY > 10){
+                setBlackHeader(true);
+            } else{
+                setBlackHeader(false);
             }
-        })
-        .then(function (response) {
-            setVideos(response.data)
-            // console.log(`${apiUrl}/videos`)
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+        }
+        window.addEventListener('scroll', scrollLisener);
+
+        return () =>{
+            window.removeEventListener('scroll', scrollLisener);
+        }
     }, []);
 
-            console.log(videos.data);
-
-  function isLogged() {
-    const local = localStorage.getItem("api-token");
-    if (local) {
-      return true;
-    } else {
-      navigate("/");
-    }
-  }
-  return (
-    <>
-      {isLogged()}
-      <Header />
-      <div className={styles.bgHome}>
-        <Videos />
-      </div>
-    </>
-  );
+    return (
+      <>
+        {isLogged()}
+        <Header black={blackHeader} />
+        <div className={styles.bgHome}>
+          <Videos />
+        </div>
+      </>
+    );
 }
 
 export default Home;
