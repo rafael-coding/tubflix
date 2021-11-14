@@ -2,24 +2,87 @@ import React from 'react';
 import '../styles/pages/register.css';
 
 function Register() {
-    return (
-        <body className="body">
+    const [nome, setNome] = useState("");
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+
+    const [erroNome, setErroNome] = useState({ valido: true, mensagem: "" });
+    const [erroEmail, setErroEmail] = useState({ valido: true, mensagem: "" });
+    const [erroSenha, setErroSenha] = useState({ valido: true, mensagem: "" });
+    const re = /\S+@\S+\.\S+/;
+
+     return (
+        <div className="background-cadastro">
             <div className="container">
                 <div className="form">
                     <h1 className="title">Sign Up</h1>
-                    <form action="#">
-                        <input type="text" id="nome" className="inputText" placeholder="Nome" />
-                        <span className="inputError"></span>
-                        <input type="text" id="email" className="inputText" placeholder="E-mail" />
-                        <span className="inputError" id="inputErrorEmail"></span>
-                        <input type="password" id="senha" className="inputText" placeholder="Senha" />
-                        <span className="inputError"></span>
+                    <form action="#"
+                        onSubmit={
+                            (e) => {
+                                e.preventDefault();
+                            }
+                        }>
+                        <input type="text" id="nome" className={erroNome.valido === false ? "inputText inputError" : "inputText"} placeholder="Nome" required
+                            onChange={
+                                (e) => {
+                                    setNome(e.target.value);
+                                }
+                            } onBlur={
+                                (e) => {
+                                    if (nome === "") {
+                                        setErroNome({ valido: false, mensagem: "O campo não pode ser vazio!" });
+                                    } else {
+                                        setErroNome({ valido: true, mensagem: "" });
+                                    }
+                            }} />
+                        <div className={erroNome.valido === false ? "mensageError" : ""} > {erroNome.mensagem} </div>
+
+
+                        <input type="email" id="email" className={erroEmail.valido === false ? "inputText inputError" : "inputText"} placeholder="E-mail" required
+                            onChange={
+                                (e) => {
+                                    setEmail(e.target.value);
+                                }
+                            } onBlur={
+                                (e) => {
+                                    if (email === "") {
+                                        setErroEmail({ valido: false, mensagem: "O campo não pode ser vazio!" });
+                                    }else if(!re.test(email)){
+                                        setErroEmail({ valido: false, mensagem: "Insira um email valido!" });
+                                    }else{
+                                        setErroEmail({ valido: true, mensagem: "" });
+                                    }
+                                }
+                            } 
+                            />
+                        <div className={erroEmail.valido === false ? "mensageError" : ""} > {erroEmail.mensagem} </div>
+
+                        <input type="password" id="senha" className={erroSenha.valido === false ? "inputText inputError" : "inputText"} placeholder="Senha" required
+                            onChange={
+                                (e) => {
+                                    setSenha(e.target.value);
+                                }
+                            } onBlur={
+                                (e) => {
+                                    if (senha === "") {
+                                        setErroSenha({ valido: false, mensagem: "O campo não pode ser vazio!" });
+                                    }else if(senha.length < 8){
+                                        setErroSenha({ valido: false, mensagem: "A senha precisa ter no minimo 8 caracteres!" });
+                                    } else {
+                                        setErroSenha({ valido: true, mensagem: "" });
+                                    }
+                                }
+                            }
+                            />
+                        <div className={erroSenha.valido === false ? "mensageError" : ""} > {erroSenha.mensagem} </div>
+
                         <input type="submit" value="Sign up" className="button" />
                     </form>
                     <a href="/login" className="link">Sign in now.</a>
                 </div>
             </div>
-        </body>
+        </div>
+
     );
 }
 

@@ -7,7 +7,7 @@ body,
     margin: 0;
 }
 
-.body {
+.background-cadastro {
     background-image: url('../../img/bg-login.jpg');
     background-position: center;
     background-repeat: no-repeat;
@@ -70,3 +70,13 @@ body,
     text-decoration: none;
     font-weight: bold;
 }
+
+.inputError {
+    border-bottom: 3px solid #ff9600;
+}
+.mensageError{
+    color: #ff9600;
+    font-size: 12px;
+    font-weight: bold;
+}
+
