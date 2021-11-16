@@ -39,6 +39,8 @@ function Home() {
       <>
         {isLogged()}
         <Header black={blackHeader} />
+        <div className={styles.trailer}>
+        </div>
         <div className={styles.bgHome}>
           <Videos />
         </div>

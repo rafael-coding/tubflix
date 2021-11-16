@@ -9,10 +9,12 @@
 /* Global CSS devFilipe */
 html {
     font-size: calc(12px + 0.833vw);
+    overflow-x: hidden;
 }
 
 body {
     background-color: #000;
+    overflow-x: hidden;
 }
 
 /* definir ponto de quebra depois*/
