@@ -143,7 +143,6 @@ h2{
     margin-top: -8px;
     display: flex;
     flex-direction: column;
-    pointer-events: none;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }

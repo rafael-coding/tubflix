@@ -9,8 +9,60 @@
 .trailer{
     height: 100vh;
     width: 100vw;
-    background-image: url('/src/img/f1.png');
+    background-image: url('/src/img/testando-ele4.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    position: relative;
+}
+
+h1, p {
+    color: #fff;
+    text-shadow: 1px 1px 100px black;
+}
+
+.contentTrailer{
+    height: 100%;
+    width: 40vw;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    padding-left: 60px;
+}
+
+.overTrailer{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: inset 1px 1px 150px 20px black;
+}
+
+.btnAssitirTraier{
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+    border: none;
+    display: flex;
+    justify-content: center;
+    padding: .6rem 1.5rem;
+    align-items: center;
+    cursor: pointer;
+}
+
+.btnAssitirTraier span{
+    font-size: .9rem;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.btnAssitirTraier img{
+    height: 22px;
+    width: 23px;
+}
+
+.btnContentTrailer{
+    margin-top: 40px;
 }

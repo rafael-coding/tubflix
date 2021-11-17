@@ -19,7 +19,7 @@ function Videos() {
 
   useEffect(() => {
     axios
-      .get(`${apiUrl}/categories/4/videos`, {
+      .get(`${apiUrl}/videos`, {
         headers: {
           "content-type": "application/json",
           Accept: "application/json",
@@ -27,7 +27,7 @@ function Videos() {
         },
       })
       .then(function (response) {
-        setVideos(response.data);
+        setVideos(response.data.data);
         // console.log(`${apiUrl}/videos`)
       })
       .catch(function (error) {
@@ -58,7 +58,7 @@ function Videos() {
         <>
         <div>
             <div className={styles.rowsList}> 
-                <h2>Populares na Netflix</h2>
+                <h2>Populares na Tubflix</h2>
                 <div className={styles.divLeftArrow} onClick={handleLeftArrow}>
                     <img src={leftArrow} alt={leftArrow}/>
                 </div>
