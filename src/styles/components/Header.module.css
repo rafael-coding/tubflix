@@ -4,9 +4,9 @@ header{
     display: flex;
     justify-content: space-between;
     padding: 18px 77px 0 55px;
-    transition: .5s;
+    transition: .8s;
     width: 100vw;
-    background: transparent;
+    background: linear-gradient(to bottom,rgba(0,0,0,.7) 10%,rgba(0,0,0,0));
     z-index: 2000;
 }
 
