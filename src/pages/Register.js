@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/pages/register.css";
+import logo from "../img/logo.png";
 
 function Register() {
   const [nome, setNome] = useState("");
@@ -13,9 +14,11 @@ function Register() {
 
   return (
     <div className="background-cadastro">
+      <img className="logo" src={logo} alt="logo" />
+      <div className="over-login"></div>
       <div className="container">
         <div className="form">
-          <h1 className="title">Sign Up</h1>
+          <h1 className="title">Cadastre-se</h1>
           <form
             action="#"
             onSubmit={(e) => {
@@ -117,10 +120,10 @@ function Register() {
               {erroSenha.mensagem}{" "}
             </div>
 
-            <input type="submit" value="Sign up" className="button" />
+            <input type="submit" value="Cadastre-se" className="button" />
           </form>
-          <a href="/login" className="link">
-            Sign in now.
+          <a href="/" className="link">
+            já tem login? <span> Faça o login </span>
           </a>
         </div>
       </div>

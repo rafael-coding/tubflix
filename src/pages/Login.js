@@ -1,7 +1,8 @@
 import { React, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../img/logo.png";
 
-import Header from "../components/Header";
+// import Header from "../components/Header";
 
 // import '../styles/pages/Login.module.css';
 import "../styles/pages/login.css";
@@ -40,7 +41,7 @@ function Login(props) {
       .then((response) => response.json())
       .then((result) => {
         if (result.error) {
-          setMessage("Credentials not found!");
+          setMessage("Email não encontrado!");
         } else if (result.access_token) {
           // set global access token
           // props.setAuthToken(result.access_token);
@@ -60,13 +61,15 @@ function Login(props) {
     <div className="login-page">
       {props.authToken ? goHome() : ""}
 
-      <Header />
+      {/* <Header /> */}
+      <img className="logo" src={logo} alt="logo" />
+      <div className="over-login"></div>
       <div className="login-page-content">
         <div className="login-component">
           <div className="transparent-background"></div>
 
           <div className="title">
-            <h1>Sign In</h1>
+            <h1>Entrar</h1>
           </div>
 
           <form onSubmit={handleLoginSubmit}>
@@ -91,15 +94,15 @@ function Login(props) {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
+              placeholder="Senha"
             />
 
-            <button type="submit">Sign In</button>
+            <button type="submit">Entrar</button>
           </form>
 
           <div className="new-register">
             <h5>
-              New here? <Link to="/cadastro">Sign up now.</Link>
+              Novo por aqui? <Link to="/cadastro">Registre agora.</Link>
             </h5>
           </div>
         </div>

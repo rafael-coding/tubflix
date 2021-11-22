@@ -10,7 +10,6 @@
 }
 
 .login-page .login-page-content {
-    background-image: url("../../img/bg-login.jpg");
     object-fit: cover;
     width: 100vw;
     height: 100vh;
@@ -24,10 +23,10 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 3.5rem;
-    width: 25rem;
+    padding: 60px 68px 40px 68px;
+    width: 450px;
     z-index: 5;
-    margin-top: 5rem;
+    margin-top: 4rem;
     color: white;
 }
 
@@ -36,18 +35,19 @@
     width: 100%;
     height: 100%;
     border-radius: 0.3rem;
-    background-color: black;
-    opacity: 0.85;
+    background-color: rgba(0,0,0,.75);
+    /* opacity: 0.8; */
     z-index: -1;
 }
 
 .login-page .login-component .title {
     width: 100%;
+    margin-bottom: 0 !important;
 }
 
 .login-page .login-component .title h1 {
-    font-weight: lighter;
-    margin-bottom: 2rem;
+    font-size: 32px;
+    margin-bottom: 28px;
 }
 
 .login-page .login-component .form-user-messages-wrapper {
@@ -66,7 +66,8 @@
     cursor: pointer;
     position: absolute;
     right: 1rem;
-    top: 0.6rem;
+    top: 50%;
+    transform: translate(0, -50%);
     border-radius: 0.3rem;
     padding-bottom: 0.08rem;
 }
@@ -88,17 +89,18 @@
 
 .login-page .login-component form > * {
     width: 100%;
-    border-radius: 0.3rem;
-    padding: 0.7rem 1rem;
+    border-radius: 4px;
+    padding: 16px 20px;
     outline: none;
     border: none;
-    margin-bottom: 1rem;
-    font-size: 1rem;
+    margin-bottom: 16px;
+    font-size: .6rem;
     border: none;
+    height: 50px;
 }
 
 .login-page .login-component form input {
-    background-color: #333333;
+    background-color: #333;
 }
 
 .login-page .login-component form input:focus {
@@ -109,13 +111,9 @@
     cursor: pointer;
     background-color: rgb(229, 9, 19);
     color: white;
-    margin-top: 1.5rem;
-    margin-bottom: 3rem;
-}
-
-.login-page .login-component form button:hover {
-    background-color: #c4c4c4;
-    color: black;
+    margin: 24px 0 40px 0;
+    font-weight: 700;
+    font-size: 16px;
 }
 
 .login-page .login-component .new-register {
@@ -125,6 +123,7 @@
 .login-page .login-component .new-register h5 {
     color: #a5a5a5;
     font-weight: normal;
+    font-size: .58rem;
 }
 
 .login-page .login-component .new-register h5 a {
@@ -134,4 +133,20 @@
 
 .login-page .login-component .new-register h5 a:hover {
     text-decoration: underline;
+}
+
+.logo{
+    position: absolute;
+    left: 60px;
+    top: 20px;
+    z-index: 10;
+    width: 167px;
+}
+
+.over-login{
+    background-image: url("../../img/bg-login.jpg");
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    opacity: .7;
 }
