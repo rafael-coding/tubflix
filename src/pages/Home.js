@@ -3,7 +3,6 @@ import { React, useContext, useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 import Header from "../components/Header";
-import Videos from "../components/Carrousel";
 import playBtn from "../img/play-btn.png";
 import { LoginContext } from "../contexts/LoginContext";
 import axios from "axios";
@@ -47,7 +46,7 @@ function Home() {
                 console.log(response.data.data);
             }
         ).catch(
-            function (error) {
+            function () {
                 alert('erro ao buscar as categorias');
             }
         );
