@@ -14,6 +14,8 @@ function Carrousel({ category }) {
     const [scrollX, setSecollX] = useState(0);
 
     useEffect(() => {
+        const ac = new AbortController();
+
         axios.get(`${process.env.REACT_APP_BASE_URL}/categories/${category.id}/videos`, {
             headers: {
                 "content-type": "application/json",
@@ -29,7 +31,9 @@ function Carrousel({ category }) {
                 console.log(error);
             }
         );
-    }, []);
+
+        return () => ac.abort();
+    }, [category.id, token]);
 
     const handleLeftArrow = () => {
         let x = scrollX + Math.round(window.innerWidth / 2);
@@ -49,22 +53,26 @@ function Carrousel({ category }) {
     };
 
     return (
-        <div>
-            <div className={styles.rowsList}>
-                <h2>{category.name}</h2>
-                <div className={styles.divLeftArrow} onClick={handleLeftArrow}>
-                    <img src={leftArrow} alt={leftArrow} />
+        <>
+            {videos.length > 0 && (
+                <div>
+                    <div className={styles.rowsList}>
+                        <h2>{category.name}</h2>
+                        <div className={styles.divLeftArrow} onClick={handleLeftArrow}>
+                            <img src={leftArrow} alt={leftArrow} />
+                        </div>
+                        <div className={styles.divRighttArrow} onClick={handleRightArrow}>
+                            <img src={rigthArrow} alt={rigthArrow} />
+                        </div>
+                        <div className={styles.rowsIntList} style={{ marginLeft: scrollX, width: videos.length * 302 }}>
+                            {videos.map(video => (
+                                <VideoCard video={video} key={video.id} />
+                            ))}
+                        </div>
+                    </div>
                 </div>
-                <div className={styles.divRighttArrow} onClick={handleRightArrow}>
-                    <img src={rigthArrow} alt={rigthArrow} />
-                </div>
-                <div className={styles.rowsIntList} style={{ marginLeft: scrollX, width: videos.length * 302 }}>
-                    {videos.map(video => (
-                        <VideoCard video={video} key={video.id} />
-                    ))}
-                </div>
-            </div>
-        </div>
+            )}
+        </>
     );
 }
 

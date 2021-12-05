@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState, createContext } from 'react';
 
 export const LoginContext = createContext();
@@ -8,49 +9,48 @@ const LoginProvider = ({ children }) => {
     const [validPassword, setValidPassword] = useState('');
 
 
-    const login = (email, password) => {
+    function login(email, password) {
         email = 'admin@admin.com.br';
         password = 'admin@1234';
 
-        let body = JSON.stringify({
+        axios.post(`${process.env.REACT_APP_BASE_URL}/auth/login`, {
             email: email,
             password: password,
-        });
-
-        fetch('https://tubflix-api.herokuapp.com/api/v1/auth/login', {
-            method: 'POST',
+        }, {
             headers: {
-                'content-type': 'application/json',
-                Accept: 'application/json',
-            },
-            body: body,
-        })
-            .then((response) => response.json())
-            .then((result) => {
-                if (result.error) {
+                "content-type": "application/json",
+                Accept: "application/json",
+            }
+        }).then(
+            response => {
+                if ('error' in response.data) {
                     alert('Erro genérico login');
-                    return false;
-                } else if (result.access_token) {
+                } else if ('access_token' in response.data) {
                     // Salvando email e senha para uso posterior
                     setValidEmail(email);
                     setValidPassword(password);
                     // Salvando token para acesso global
-                    setToken(result.access_token);
-
-                    return true;
+                    setToken(response.data.access_token);
                 }
-            })
-            .catch((error) => {
-                alert('deu erro nessa porra');
-                console.log('error when trying to sign in ', error)
-            });
+            }
+        ).catch(
+            error => {
+                console.log(error);
+                alert('deu merda');
+            }
+        );
     };
+
+    function loginExpired() {
+        login(validEmail, validPassword);
+    }
 
     return (
         <LoginContext.Provider
             value={{
                 token,
                 login,
+                loginExpired,
             }}
         >
             {children}

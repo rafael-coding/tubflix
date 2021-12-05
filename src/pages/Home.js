@@ -42,15 +42,13 @@ function Home() {
         }).then(
             function (response) {
                 setCategories(response.data.data);
-
-                console.log(response.data.data);
             }
         ).catch(
             function () {
                 alert('erro ao buscar as categorias');
             }
         );
-    }, []);
+    }, [token]);
 
     return (
         <>
