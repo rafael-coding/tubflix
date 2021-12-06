@@ -9,7 +9,6 @@ function AddVideo() {
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('');
     const [videoUrl, setVideoUrl] = useState('');
-    const [videoData, setVideoData] = useState({});
 
     useEffect(() => {
         const scrollLisener = () => {
@@ -82,12 +81,7 @@ function AddVideo() {
                         parseInt(selectedCategory),
                     ],
                 };
-                console.log(saveVideoApi(newVideo));
-                // if () {
-                //
-                // } else {
-                //     ;
-                // }
+                saveVideoApi(newVideo);
             }
         ).catch(
             error => alert('erro ao buscar dados do vídeo')
