@@ -1,5 +1,5 @@
-import styles from "../styles/pages/Home.module.css";
 import { React, useContext, useEffect, useState } from 'react';
+import styles from "../styles/pages/Home.module.css";
 import { useNavigate } from "react-router-dom";
 
 import Header from "../components/Header";
