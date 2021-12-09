@@ -63,7 +63,7 @@ function AddVideo() {
         }
 
         // Busca os dados do vídeo na api do youtube
-        axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${q}&key=AIzaSyD_3F9NAvjWb7o_e__s2HsYiYo-Lr83Lw4`, {
+        axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${q}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`, {
             headers: {
                 Accept: 'application/json'
             }
